@@ -1,0 +1,27 @@
+{
+  "name": "unloading-manager",
+  "version": "1.0.0",
+  "author": "Romain Petit",
+  "standard-version": {
+    "releaseCommitMessageFormat": "Chore(release): {{currentTag}} 🎉",
+    "scripts": {
+      "postchangelog": "pnpm changelog"
+    }
+  },
+  "scripts": {
+    "postinstall": "husky",
+    "release": "standard-version --no-verify",
+    "release:major": "pnpm release --release-as major",
+    "release:minor": "pnpm release --release-as minor",
+    "release:patch": "pnpm release --release-as patch",
+    "prechangelog": "rm -f CHANGELOG.md",
+    "changelog": "conventional-changelog -i CHANGELOG.md -s"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "19.1.0",
+    "@commitlint/config-conventional": "19.1.0",
+    "conventional-changelog-cli": "4.1.0",
+    "husky": "9.0.11",
+    "standard-version": "9.5.0"
+  }
+}

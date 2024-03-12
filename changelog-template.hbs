@@ -1,0 +1,14 @@
+# Changelog
+
+*All notable changes to this project will be documented in this file*
+
+## {{#if @root.linkCompare}}[{{version}}]({{@root.host}}/{{#if @root.owner}}{{@root.owner}}/{{/if}}{{@root.repository}}/compare/{{previousTag}}...{{currentTag}}){{else}}{{version}}{{/if}}{{#if title}} "{{title}}"{{/if}}
+
+{{#each commitGroups}}
+    {{#if title}}### {{title}}{{/if}}
+
+    {{#each commits}}
+        - {{message}}
+    {{/each}}
+
+{{/each}}
