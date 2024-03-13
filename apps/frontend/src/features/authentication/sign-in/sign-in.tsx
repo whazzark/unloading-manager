@@ -64,11 +64,21 @@ export function SignIn() {
     <form className="space-y-4" onSubmit={handleSubmit(handleSignIn)}>
       <div className="space-y-1">
         <Label htmlFor="email">Email *</Label>
-        <Input id="email" type="email" {...register("email")} />
+        <Input
+          id="email"
+          type="email"
+          autoComplete="email"
+          {...register("email")}
+        />
       </div>
       <div className="space-y-2">
         <Label htmlFor="password">Password *</Label>
-        <Input id="password" type="password" {...register("password")} />
+        <Input
+          id="password"
+          type="password"
+          autoComplete="current-password"
+          {...register("password")}
+        />
       </div>
       <Button type="submit" className="w-full pt-2" disabled={isSigningIn}>
         Sign In

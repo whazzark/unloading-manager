@@ -64,17 +64,28 @@ export function SignUp() {
     <form className="space-y-4" onSubmit={handleSubmit(handleSignUp)}>
       <div className="space-y-1">
         <Label htmlFor="email">Email *</Label>
-        <Input id="email" type="email" {...register("email")} />
+        <Input
+          id="email"
+          type="email"
+          autoComplete="email"
+          {...register("email")}
+        />
       </div>
       <div className="space-y-2">
         <Label htmlFor="password">Password *</Label>
-        <Input id="password" type="password" {...register("password")} />
+        <Input
+          id="password"
+          type="password"
+          autoComplete="current-password"
+          {...register("password")}
+        />
       </div>
       <div className="space-y-2">
         <Label htmlFor="confirmPassword">Confirm password *</Label>
         <Input
           id="confirmPassword"
           type="password"
+          autoComplete="current-password"
           {...register("confirmPassword")}
         />
       </div>
