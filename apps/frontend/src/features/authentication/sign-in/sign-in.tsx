@@ -6,7 +6,7 @@ import { useSignIn } from "@clerk/nextjs";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
-import { Button, Input, Label } from "@/components/atoms";
+import { Button, Input, Label, useToast } from "@/components/atoms";
 
 import { SIGN_IN_SCHEMA } from "./schema";
 import { useRedirectToSignIn } from "./use-redirect-to-sign-in";
@@ -21,6 +21,8 @@ export function SignIn() {
   });
 
   const redirectToSignIn = useRedirectToSignIn();
+
+  const { toast } = useToast();
 
   const [isSigningIn, setSigningIn] = useState<boolean>(false);
 
@@ -44,12 +46,18 @@ export function SignIn() {
           /* Investigate why the sign-in hasn't completed */
         }
       } catch (error: any) {
-        console.error("error", error.errors[0].longMessage);
+        const currentError = error.errors[0];
+
+        toast({
+          variant: "destructive",
+          title: "Sign in error occurred",
+          description: currentError.longMessage,
+        });
       } finally {
         setSigningIn(false);
       }
     },
-    [isLoaded, redirectToSignIn, setActive, signIn],
+    [isLoaded, redirectToSignIn, setActive, signIn, toast],
   );
 
   return (

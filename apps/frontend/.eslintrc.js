@@ -45,7 +45,11 @@ module.exports = {
     'newline-before-return': 'error',
     'newline-after-var': 'error',
     'padding-line-between-statements': 'off',
-    'prettier/prettier': 'error',
+    'prettier/prettier': [
+      'error',
+      {
+
+    }],
     'react/function-component-definition': [2, { "namedComponents": "function-declaration" }],
     'react/jsx-boolean-value': 'off',
     'react/jsx-fragments': ['error', 'element'],
@@ -66,7 +70,6 @@ module.exports = {
       arrow: 'parens-new-line',
       condition: 'parens-new-line',
       logical: 'parens-new-line',
-      prop: 'parens-new-line'
     }],
     'react/no-unused-class-component-methods': 'off',
     'react/require-default-props': 'off',

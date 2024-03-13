@@ -10,7 +10,7 @@ export default function AuthenticationLayout(props: PropsWithChildren) {
   return (
     <div className="flex flex-1 flex-row">
       <div className="flex flex-1 flex-col items-center justify-center">
-        <div className="lg:w-2/3">
+        <div className="w-3/4 sm:w-2/3 md:w-1/2 lg:w-2/3 xl:w-7/12">
           <div className="flex justify-center mb-4">
             <Image
               src="/vercel.svg"
@@ -26,8 +26,8 @@ export default function AuthenticationLayout(props: PropsWithChildren) {
 
       <div className="hidden lg:flex flex-1 relative shadow">
         <Image
-          layout="fill"
-          objectFit="cover"
+          fill={true}
+          className="object-cover"
           src="/authentication-background.jpeg"
           alt="Authentication background image"
         />

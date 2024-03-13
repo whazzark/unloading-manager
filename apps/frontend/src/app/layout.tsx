@@ -2,6 +2,8 @@ import React from "react";
 
 import { ClerkProvider } from "@clerk/nextjs";
 
+import { Toaster } from "@/components/atoms";
+
 import type { Metadata } from "next";
 import type { PropsWithChildren } from "react";
 
@@ -20,6 +22,7 @@ export default function RootLayout(props: PropsWithChildren) {
       <html lang="en" className="flex h-screen">
         <body suppressHydrationWarning={true} className="flex flex-1 flex-col">
           {children}
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>

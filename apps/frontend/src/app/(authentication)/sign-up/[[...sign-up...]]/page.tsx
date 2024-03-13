@@ -10,7 +10,7 @@ export default function SignUpPage() {
     <AuthenticationTemplate
       description="Start your 30-day free trial"
       title="Create an account"
-      footer={(
+      footer={
         <div className="space-x-1">
           <span>Already have an account ?</span>
 
@@ -21,7 +21,7 @@ export default function SignUpPage() {
             Login
           </Link>
         </div>
-      )}
+      }
     >
       <SignUp />
     </AuthenticationTemplate>

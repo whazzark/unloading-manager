@@ -10,7 +10,7 @@ export default function SignInPage() {
     <AuthenticationTemplate
       description="Welcome back ! Please enter your details"
       title="Log in to your account"
-      footer={(
+      footer={
         <div className="space-x-1">
           <span>{`Don't have an account ?`}</span>
 
@@ -21,7 +21,7 @@ export default function SignInPage() {
             Sign up
           </Link>
         </div>
-      )}
+      }
     >
       <SignIn />
     </AuthenticationTemplate>

@@ -6,7 +6,7 @@ import { useSignUp } from "@clerk/nextjs";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
-import { Button, Input, Label } from "@/components/atoms";
+import { Button, Input, Label, useToast } from "@/components/atoms";
 
 import { SIGN_UP_SCHEMA } from "./schema";
 import { useRedirectToSignUp } from "./use-redirect-to-sign-in";
@@ -21,6 +21,8 @@ export function SignUp() {
   });
 
   const redirectToSignUp = useRedirectToSignUp();
+
+  const { toast } = useToast();
 
   const [isSigningUp, setSigningUp] = useState<boolean>(false);
 
@@ -44,29 +46,35 @@ export function SignUp() {
           /* Investigate why the sign-in hasn't completed */
         }
       } catch (error: any) {
-        console.error("error", error.errors[0].longMessage);
+        const currentError = error.errors[0];
+
+        toast({
+          variant: "destructive",
+          title: "Sign up error occurred",
+          description: currentError.longMessage,
+        });
       } finally {
         setSigningUp(false);
       }
     },
-    [isLoaded, signUp, setActive, redirectToSignUp],
+    [isLoaded, signUp, setActive, redirectToSignUp, toast],
   );
 
   return (
     <form className="space-y-4" onSubmit={handleSubmit(handleSignUp)}>
       <div className="space-y-1">
-        <Label htmlFor="email">Email</Label>
+        <Label htmlFor="email">Email *</Label>
         <Input id="email" type="email" {...register("email")} />
       </div>
       <div className="space-y-2">
-        <Label htmlFor="password">Password</Label>
+        <Label htmlFor="password">Password *</Label>
         <Input id="password" type="password" {...register("password")} />
       </div>
       <div className="space-y-2">
-        <Label htmlFor="confirmPassword">Confirm password</Label>
+        <Label htmlFor="confirmPassword">Confirm password *</Label>
         <Input
           id="confirmPassword"
-          type="confirmPassword"
+          type="password"
           {...register("confirmPassword")}
         />
       </div>
