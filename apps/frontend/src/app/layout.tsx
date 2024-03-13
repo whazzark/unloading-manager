@@ -17,8 +17,10 @@ export default function RootLayout(props: PropsWithChildren) {
 
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body suppressHydrationWarning={true}>{children}</body>
+      <html lang="en" className="flex h-screen">
+        <body suppressHydrationWarning={true} className="flex flex-1 flex-col">
+          {children}
+        </body>
       </html>
     </ClerkProvider>
   );
