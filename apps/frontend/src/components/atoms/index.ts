@@ -13,6 +13,7 @@ export * from "./collapsible";
 export * from "./context-menu";
 export * from "./dialog";
 export * from "./drawer";
+export * from "./dropdown-menu";
 export * from "./input";
 export * from "./label";
 export * from "./toast";
