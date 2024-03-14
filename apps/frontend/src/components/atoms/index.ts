@@ -32,5 +32,6 @@ export * from "./sheet";
 export * from "./skeleton";
 export * from "./slider";
 export * from "./switch";
+export * from "./table";
 export * from "./toast";
 export * from "./tooltip";
