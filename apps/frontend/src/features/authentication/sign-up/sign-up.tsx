@@ -7,7 +7,7 @@ import { useSignUp } from "@clerk/nextjs";
 import { useToast } from "@/components/atoms";
 import { FormLayout } from "@/components/organisms";
 
-import { SIGN_UP_SCHEMA } from "./schema";
+import { SIGN_UP_FIELD_CONFIG, SIGN_UP_SCHEMA } from "./schema";
 import { useRedirectToSignUp } from "./use-redirect-to-sign-in";
 
 import type { SignUpSchema } from "./schema";
@@ -52,8 +52,9 @@ export function SignUp() {
 
   return (
     <FormLayout
-      formSchema={SIGN_UP_SCHEMA}
       submitButtonLabel="Sign up"
+      formSchema={SIGN_UP_SCHEMA}
+      fieldConfig={SIGN_UP_FIELD_CONFIG}
       onSubmit={handleSignUp}
     />
   );

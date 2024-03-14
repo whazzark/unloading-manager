@@ -7,7 +7,7 @@ import { useSignIn } from "@clerk/nextjs";
 import { useToast } from "@/components/atoms";
 import { FormLayout } from "@/components/organisms";
 
-import { SIGN_IN_SCHEMA } from "./schema";
+import { SIGN_IN_FIELD_CONFIG, SIGN_IN_SCHEMA } from "./schema";
 import { useRedirectToSignIn } from "./use-redirect-to-sign-in";
 
 import type { SignInSchema } from "./schema";
@@ -52,8 +52,9 @@ export function SignIn() {
 
   return (
     <FormLayout
-      formSchema={SIGN_IN_SCHEMA}
       submitButtonLabel="Sign in"
+      formSchema={SIGN_IN_SCHEMA}
+      fieldConfig={SIGN_IN_FIELD_CONFIG}
       onSubmit={handleSignIn}
     />
   );

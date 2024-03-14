@@ -1,5 +1,7 @@
 import { z } from "zod";
 
+import type { FieldConfig } from "@/components/organisms/form-layout/types";
+
 export const SIGN_IN_SCHEMA = z.object({
   email: z.string().min(1, { message: "Email is required" }).email({
     message: "Must be a valid email",
@@ -10,3 +12,16 @@ export const SIGN_IN_SCHEMA = z.object({
 });
 
 export type SignInSchema = z.infer<typeof SIGN_IN_SCHEMA>;
+
+export const SIGN_IN_FIELD_CONFIG: FieldConfig<SignInSchema> = {
+  email: {
+    inputProps: {
+      type: "email",
+    },
+  },
+  password: {
+    inputProps: {
+      type: "password",
+    },
+  },
+};
