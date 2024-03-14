@@ -53,8 +53,6 @@ export function FormLayout<T extends ZodObjectOrWrapped>(
     values: valuesProp,
   });
 
-  const formValues = form.watch();
-
   const handleSubmit = useCallback(
     (values: z.infer<typeof formSchema>) => {
       const parsedValues = formSchema.safeParse(values);
