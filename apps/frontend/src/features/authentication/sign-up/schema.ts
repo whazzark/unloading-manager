@@ -7,7 +7,8 @@ export const SIGN_UP_SCHEMA = z
     }),
     password: z
       .string()
-      .min(8, { message: "Password must be at least 8 characters" }),
+      .min(8, { message: "Password must be at least 8 characters" })
+      .describe("Password"),
     confirmPassword: z
       .string()
       .min(1, { message: "Confirm Password is required" }),
