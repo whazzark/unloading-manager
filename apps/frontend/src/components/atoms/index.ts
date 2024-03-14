@@ -21,5 +21,6 @@ export * from "./label";
 export * from "./menubar";
 export * from "./navigation-menu";
 export * from "./pagination";
+export * from "./popover";
 export * from "./toast";
 export * from "./tooltip";
